@@ -27,6 +27,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
 
     respond_to do |format|
       if @article.save
@@ -72,5 +73,9 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :content, :thumbnail_url)
+    end
+
+    def authorize_user!
+      redirect_back fallback_location: root_path, alert: 'Nimate dostopa do te strani.' unless current_user == @post.user
     end
 end
