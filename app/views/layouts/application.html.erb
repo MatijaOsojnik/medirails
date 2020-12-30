@@ -7,10 +7,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    
+    <!-- This refers to app/javascript/stylesheets/application.scss-->
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     </head>
+
+  <body class="bg-black text-white font-sans">
     <%= yield %>
            <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
