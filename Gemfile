@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'bootstrap', '~> 5.0.0.alpha3'
 
+gem "font-awesome-rails"
+
 gem 'jquery-rails'
 
 gem 'devise' # User auth

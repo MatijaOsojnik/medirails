@@ -43,6 +43,8 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+
+    @article.user = current_user
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
@@ -76,6 +78,6 @@ class ArticlesController < ApplicationController
     end
 
     def authorize_user!
-      redirect_back fallback_location: root_path, alert: 'Nimate dostopa do te strani.' unless current_user == @post.user
+      redirect_back fallback_location: root_path, alert: 'Nimate dostopa do te strani.' unless current_user == @article.user
     end
 end
