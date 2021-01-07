@@ -37,7 +37,7 @@ gem 'jquery-rails'
 
 gem 'devise' # User auth
 
-gem 'commontator' # Comments engine
+# gem 'commontator' # Comments engine
 
 #Image upload
 
