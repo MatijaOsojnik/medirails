@@ -39,12 +39,7 @@ gem 'devise' # User auth
 
 gem 'commontator' # Comments engine
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
-
 #Image upload
-
-gem 'aws-sdk', '~> 2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
