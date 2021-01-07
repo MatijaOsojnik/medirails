@@ -1,16 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Articles</h1>
 
-<div class="row">
+<div class="row my-2">
       <% @articles.each do |article| %>
 
 <div class="col-sm-3">
     <div class="card">
+    <strong> <%= article.user.name %> || 'Neznan avtor' </strong>
       <%= image_tag article.thumbnail_url, :class => "card-img-top", :style => "height: 250px" %>
       <div class="card-body">
         <h5 class="card-title my-2"> <%= article.title %> </h5>
-        <p class="card-text"> <%= article.content %></p>
+                  <p class="card-text mb-auto"><%= article.content.truncate(55, separator: /\s/) %></p>
       </div>
           <div class="card-footer">
       <small class="text-muted">Last updated <%= time_ago_in_words(article.updated_at) %> ago</small>

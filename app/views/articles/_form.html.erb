@@ -10,23 +10,22 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="form-group mb-2">
     <%= form.label :title %>
-    <%= form.text_field :title, required: true %>
+    <%= form.text_field :title, class:"form-control", required: true %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-2">
     <%= form.label :content %>
-    <%= form.text_area :content, required: true %>
+    <%= form.text_area :content, class:"form-control", required: true %>
   </div>
 
-  <div class="field">
+  <div class="form-group mb-2">
     <%= form.label :thumbnail_url %>
-    <%= form.text_field :thumbnail_url %>
+    <%= form.text_field :thumbnail_url, class:"form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mb-2">
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
