@@ -39,6 +39,9 @@ gem 'devise' # User auth
 
 gem 'commontator' # Comments engine
 
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier'
+
 #Image upload
 
 gem 'aws-sdk', '~> 2'
