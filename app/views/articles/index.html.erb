@@ -5,8 +5,8 @@
 
 <div class="col-sm-3">
     <div class="card">
-    <strong> <%= article.user.name %> || 'Neznan avtor' </strong>
-      <%= image_tag article.thumbnail_url, :class => "card-img-top", :style => "height: 250px" %>
+    <strong class="p-2"> <%= article.user.name %> || 'Neznan avtor' </strong>
+      <img src=<%= article.thumbnail_url%> class="card-img-top" style="height: 250px" ></img>
       <div class="card-body">
         <h5 class="card-title my-2"> <%= article.title %> </h5>
                   <p class="card-text mb-auto"><%= article.content.truncate(55, separator: /\s/) %></p>
