@@ -2,6 +2,7 @@
   "name": "medirails",
   "private": true,
   "dependencies": {
+
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -14,7 +15,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "postcss": "^8.0.0",
+    "postcss": "^8.2.1",
     "postcss-loader": "^4.1.0",
     "webpack-dev-server": "^3.11.0"
   }
