@@ -3,13 +3,14 @@
 <div class="row my-2">
       <% @articles.each do |article| %>
 
-<div class="col-sm-3">
+<div class="col-sm-3  my-2">
     <div class="card">
-    <strong class="p-2"> <%= article.user.name %> || 'Neznan avtor' </strong>
+    <strong class="p-2"> <%= article.user.name || 'Neznan avtor' %>  </strong>
       <img src=<%= article.thumbnail_url%> class="card-img-top" style="height: 250px" ></img>
       <div class="card-body">
         <h5 class="card-title my-2"> <%= article.title %> </h5>
                   <p class="card-text mb-auto"><%= article.content.truncate(55, separator: /\s/) %></p>
+                  <%= link_to 'Show', article, class:"btn btn-dark btn-article my-2" %>
       </div>
           <div class="card-footer">
       <small class="text-muted">Last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
@@ -18,29 +19,4 @@
   </div>
   <% end %>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Article', new_article_path %>
+  <%= link_to 'New Article', new_article_path, class:"btn btn-article btn-primary my-2" %>
