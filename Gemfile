@@ -37,6 +37,8 @@ gem 'jquery-rails'
 
 gem 'devise' # User auth
 
+gem 'aws-sdk-s3', require: false
+
 # gem 'commontator' # Comments engine
 
 #Image upload
