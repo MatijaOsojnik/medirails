@@ -20,6 +20,12 @@
     <%= form.text_area :content, class:"form-control", required: true %>
   </div>
 
+  
+
+  <div class="custom-file">
+<%= form.file_field :photo, class:"custom-file-input", required: true %>
+</div>
+
   <div class="form-group mb-2">
     <%= form.label :thumbnail_url %>
     <%= form.text_field :thumbnail_url, class:"form-control" %>

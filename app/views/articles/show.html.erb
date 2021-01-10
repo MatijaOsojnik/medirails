@@ -1,16 +1,7 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
-
-<p>
-  <strong>Thumbnail url:</strong>
-  <%= @article.thumbnail_url %>
-</p>
+<div class="container">
+  <h2 class="title my-2"> <%=@article.title%> </h2>
+  <%= image_tag(@article.photo, width: 200) if @article.photo.attached? %>
+  <p class="my-2"><%= @article.content %>"</p>
+</div>
 
 <%= display_show_article_links(@article) %>
