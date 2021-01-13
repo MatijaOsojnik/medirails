@@ -29,15 +29,13 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'bootstrap', '~> 5.0.0.alpha3'
-
 gem "font-awesome-rails"
-
-gem 'jquery-rails'
 
 gem 'devise' # User auth
 
 gem 'aws-sdk-s3', require: false
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 # gem 'commontator' # Comments engine
 

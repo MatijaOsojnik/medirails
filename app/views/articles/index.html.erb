@@ -1,22 +1,24 @@
 <h1>Articles</h1>
-
+<i class="fa fa-github fa-2x"></i>
 <div class="row my-2">
-      <% @articles.each do |article| %>
+  <% @articles.each do |article| %>
 
-<div class="col-sm-3  my-2">
+  <div class="col-sm-3  my-2">
     <div class="card">
-    <strong class="p-2"> <%= article.user.name || 'Neznan avtor' %>  </strong>
+      <strong class="p-2"> <%= article.user.name || 'Neznan avtor' %> </strong>
       <%= image_tag(article.photo, class:"card-img-top") if article.photo.attached? %>
       <div class="card-body">
         <h5 class="card-title my-2"> <%= article.title %> </h5>
-                  <p class="card-text mb-auto"><%= article.content.truncate(55, separator: /\s/) %></p>
-                  <%= link_to 'Show', article, class:"btn btn-dark btn-article my-2" %>
+        <p class="card-text mb-auto"><%= article.content.truncate(55, separator: /\s/) %></p>
+        <%= link_to 'Show', article, class:"btn btn-dark btn-article my-2" %>
       </div>
-          <div class="card-footer">
-      <small class="text-muted">Last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
-    </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
+      </div>
     </div>
   </div>
   <% end %>
+</div>
 
-  <%= link_to 'New Article', new_article_path, class:"btn btn-article btn-primary my-2" %>
+<a href="<%= new_article_path %>" class="btn btn-article btn-primary my-2">New Article <%= fa_icon "plus" %></a>
+  <!-- <%= link_to 'New Article', new_article_path, class:"btn btn-article btn-primary my-2" %> -->

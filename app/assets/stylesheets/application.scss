@@ -14,7 +14,9 @@
  *= require_self
  */
 
- @import "bootstrap";
+ @import "bootstrap/scss/bootstrap";
+//  @import "bootstrap";
+ @import "font-awesome";
 
 a{
     font-size: 18px;
@@ -31,4 +33,10 @@ a{
     .nav-logo-rails {
         color:rgb(225, 47, 47);
     }
+}
+
+.btn-group>.btn:not(:last-child):not(.dropdown-toggle),
+.btn-group>.btn-group:not(:last-child)>.btn {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
 }

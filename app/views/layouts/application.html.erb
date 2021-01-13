@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Medirails</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
-    <!-- This refers to app/javascript/stylesheets/application.scss-->
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-     </head>
+<head>
+  <title>Medirails</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  <!-- This refers to app/javascript/stylesheets/application.scss-->
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
   <div class="container">
-        <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-          <div class="col-4 pt-1">
-            <%= link_to root_path, class: 'blog-header-logo text-dark' do %>
-              <h2 class="nav-logo">Medi<span class="nav-logo-rails">rails</span></h2>
-            <% end %>
-          </div>
-          <div class="col-4 d-flex justify-content-end align-items-center">
-            <%= display_session_links %>
-          </div>
+    <header class="blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <%= link_to root_path, class: 'blog-header-logo text-dark' do %>
+          <h2 class="nav-logo">Medi<span class="nav-logo-rails">rails</span></h2>
+          <% end %>
         </div>
-      </header>
-           <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <i class="fa fa-user fa-2x"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <h6 class="dropdown-header"><%= current_user.name + ' ' + current_user.surname %> </h6>
+              <%= link_to "Uredi profil", edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to "Odjava", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </div>
+          <!-- <%= display_session_links %> -->
+        </div>
+      </div>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
-  </body>
+</body>
+
 </html>
