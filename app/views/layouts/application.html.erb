@@ -23,7 +23,21 @@
           <% end %>
         </div>
         <div class="col-4 d-flex justify-content-end align-items-center">
-          <%= display_session_links %>
+          <% if user_signed_in? %>
+          <div class="btn-group"> <% if user_signed_in? %>
+            <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user fa-2x"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <h6 class="dropdown-header"><%= current_user.name + ' ' + current_user.surname %> </h6>
+              <%= link_to "Uredi profil", edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to "Odjava", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </div>
+          <% end %>
+          <% else %>
+            <%= display_session_links %>
+          <% end %>
         </div>
       </div>
     </header>
