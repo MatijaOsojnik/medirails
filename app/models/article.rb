@@ -1,7 +1,13 @@
 class Article < ApplicationRecord
   belongs_to :user
+  has_many :bookmarks
   has_one_attached :photo
-  # acts_as_commontable dependent: :destroy
+  has_rich_text :content
+
+  def bookmarked?(user)
+    !!self.bookmarks.find{|bookmark| bookmark.user_id == user.id}
+  end
+    # acts_as_commontable dependent: :destroy
 
   validates :title, presence: true
   validates :content, presence: true

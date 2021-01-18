@@ -14,29 +14,45 @@
  *= require_self
  */
 
- @import "bootstrap/scss/bootstrap";
-//  @import "bootstrap";
- @import "font-awesome";
+@import "bootstrap/scss/bootstrap";
+//= require actiontext
+@import "font-awesome";
 
-a{
+a {
     font-size: 18px;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         background-color: transparent;
+    }
+    .nav-icon {
+        font-size: 25px;
     }
 }
 
 .nav-logo {
     font-size: 30px;
     font-weight: bold;
-    text-decoration: double;
+    display: inline;
+
     .nav-logo-rails {
-        color:rgb(225, 47, 47);
+        color: rgb(225, 47, 47);
     }
+
+    &:hover {
+        text-decoration: none !important;
+        border: none !important;
+    }
+}
+.nav-greeting {
+    font-size: 26px;
+    color: black;
 }
 
 .btn-group>.btn:not(:last-child):not(.dropdown-toggle),
 .btn-group>.btn-group:not(:last-child)>.btn {
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
 }

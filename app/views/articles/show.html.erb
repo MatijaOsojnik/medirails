@@ -1,7 +1,14 @@
 <div class="container">
   <h2 class="title my-2"> <%=@article.title%> </h2>
+  <% if user_signed_in? %>
+    <% if @article.bookmarked?(current_user) %> 
+    <%= button_to "Bookmark", bookmark_path(@article), method: "put", disabled: true %>
+  <% else %>
+    <%= button_to "Bookmark", bookmark_path(@article), method: "put"%>
+    <% end %> 
+  <% end %>
   <%= image_tag(@article.photo, class:"article-image") if @article.photo.attached? %>
-  <p class="my-2"><%= @article.content %>"</p>
+  <p class="my-2"><%= @article.content %></p>
 </div>
 
 <%= display_show_article_links(@article) %>

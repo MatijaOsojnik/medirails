@@ -67,6 +67,16 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def bookmark
+    @article = Article.find(params[:id])
+    Bookmark.create(user_id: current_user.id, article_id: @article.id)
+    redirect_to article_path(@article)
+  end
+
+  def find_bookmarks
+    @bookmarks = Bookmark.where(user_id: current_user.id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article

@@ -1,15 +1,14 @@
 <h1>Articles</h1>
-<i class="fa fa-github fa-2x"></i>
 <div class="row my-2">
   <% @articles.each do |article| %>
 
   <div class="col-sm-3  my-2">
     <div class="card">
       <strong class="p-2"> <%= article.user.name || 'Neznan avtor' %> </strong>
-      <%= image_tag(article.photo, class:"card-img-top") if article.photo.attached? %>
+      <%= image_tag(article.photo, class:"card-img-top", style:"max-height: 150px;") if article.photo.attached? %>
       <div class="card-body">
         <h5 class="card-title my-2"> <%= article.title %> </h5>
-        <p class="card-text mb-auto"><%= article.content.truncate(55, separator: /\s/) %></p>
+        <p class="card-text mb-auto"><%= article.content[20] %></p>
         <%= link_to 'Show', article, class:"btn btn-dark btn-article my-2" %>
       </div>
       <div class="card-footer">
