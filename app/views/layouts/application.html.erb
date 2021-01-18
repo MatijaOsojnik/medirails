@@ -24,19 +24,37 @@
         </div>
         <div class="col-4 d-flex justify-content-end align-items-center">
           <% if user_signed_in? %>
-          <div class="btn-group"> <% if user_signed_in? %>
+          <div class="btn-group">
+            <a href="<%= new_article_path %>" class="btn my-2">
+              <%= fa_icon "bookmark-multiple" %></a>
             <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-user fa-2x"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
               <h6 class="dropdown-header"><%= current_user.name + ' ' + current_user.surname %> </h6>
-              <%= link_to "Uredi profil", edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to "Odjava", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+              <li>
+                <%= link_to 'New Article', new_article_path, class:"dropdown-item" %>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <%= link_to "Profile", edit_user_registration_path, class: 'dropdown-item' %>
+              </li>
+              <li>
+                <%= link_to "Settings", edit_user_registration_path, class: 'dropdown-item' %>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+              </li>
             </div>
           </div>
-          <% end %>
+
           <% else %>
-            <%= display_session_links %>
+          <%= display_session_links %>
           <% end %>
         </div>
       </div>

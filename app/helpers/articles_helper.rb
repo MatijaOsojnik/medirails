@@ -1,4 +1,12 @@
 module ArticlesHelper
+  require "mini_magick"
+
+    def resized_image(image)
+      image = MiniMagick::Image.open(image)
+      image.resize "400x400"
+      image.rotate "-90"
+    end
+  
     def display_index_article_links(article)
       capture do
         concat link_to('Preberi več', article, class: 'stretched-link')
