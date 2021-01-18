@@ -12,6 +12,7 @@ module ArticlesHelper
         concat link_to('Preberi več', article, class: 'stretched-link')
       end
     end
+
     def display_show_article_links(article)
     capture do
       if current_user == article.user

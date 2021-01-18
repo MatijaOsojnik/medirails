@@ -14,14 +14,15 @@
  *= require_self
  */
 
- @import "bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 //= require actiontext
- @import "font-awesome";
+@import "font-awesome";
 
-a{
+a {
     font-size: 18px;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         background-color: transparent;
     }
 }
@@ -29,10 +30,20 @@ a{
 .nav-logo {
     font-size: 30px;
     font-weight: bold;
-    text-decoration: double;
+    display: inline;
+
     .nav-logo-rails {
-        color:rgb(225, 47, 47);
+        color: rgb(225, 47, 47);
     }
+
+    &:hover {
+        text-decoration: none !important;
+        border: none !important;
+    }
+}
+.nav-greeting {
+    font-size: 26px;
+    color: black;
 }
 
 .btn-group>.btn:not(:last-child):not(.dropdown-toggle),
