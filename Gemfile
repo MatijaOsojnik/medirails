@@ -17,7 +17,12 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
- 
+
+# Google oauth 
+gem 'omniauth-oauth2'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -34,7 +39,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem "font-awesome-rails"
 
-gem 'devise' # User auth
+gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf80a632d3232c3f548ce7b95fd94b6eb2' # User auth
 
 gem 'aws-sdk-s3', require: false
 

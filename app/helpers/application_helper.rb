@@ -17,7 +17,7 @@ module ApplicationHelper
     if (hour >= 0 and hour <= 12)
       return "Good morning"
     elsif (hour >= 12 and hour <= 18)
-      return "Good afternoon afternoon"
+      return "Good afternoon"
     elsif (hour >= 18 and hour <= 24)
       return "Good evening"
     end
