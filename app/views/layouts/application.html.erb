@@ -38,7 +38,7 @@
               <i class="fa fa-user fa-2x"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <h6 class="dropdown-header"><%= current_user.name %> </h6>
+              <h6 class="dropdown-header"><%= current_user.name + ' ' + current_user.surname %> </h6>
               <li>
                 <%= link_to 'New Article', new_article_path, class:"dropdown-item" %>
               </li>
