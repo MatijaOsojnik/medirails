@@ -75,4 +75,6 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  ENV['FACEBOOK_APP_ID'] = '222144952858826'
+  ENV['FACEBOOK_APP_SECRET'] = '821f52ff960e0e0a4c2edf46d2ae6fd3'
 end
