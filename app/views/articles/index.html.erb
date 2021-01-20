@@ -1,8 +1,7 @@
-<h1>Articles</h1>
-<div class="row my-2">
+<div class="row">
   <% @articles.each do |article| %>
 
-  <div class="col-sm-3  my-2">
+  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12  my-2">
     <div class="card">
       <strong class="p-2"> <%= article.user.name || 'Neznan avtor' %> </strong>
       <%= image_tag(article.photo, class:"card-img-top", style:"max-height: 150px;") if article.photo.attached? %>
