@@ -19,9 +19,13 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
 # Google oauth 
+gem 'omniauth-google-oauth2'
 gem 'omniauth-oauth2'
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem "omniauth-rails_csrf_protection"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -44,6 +48,8 @@ gem 'devise', :git => "https://github.com/heartcombo/devise.git", ref: '8bb358cf
 gem 'aws-sdk-s3', require: false
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+gem 'dotenv-rails'
 
 # gem 'commontator' # Comments engine
 
