@@ -1,14 +1,31 @@
-<div class="container">
+<div>
   <h2 class="title my-2"> <%=@article.title%> </h2>
-  <% if user_signed_in? %>
-    <% if @article.bookmarked?(current_user) %> 
-    <%= button_to "Bookmark", bookmark_path(@article), method: "put", disabled: true %>
-  <% else %>
-    <%= button_to "Bookmark", bookmark_path(@article), method: "put"%>
-    <% end %> 
-  <% end %>
   <%= image_tag(@article.photo, class:"article-image") if @article.photo.attached? %>
   <p class="my-2"><%= @article.content %></p>
+  <% if user_signed_in? %>
+
+  <% if @article.bookmarked?(current_user) %>
+  <%= link_to remove_bookmark_path(@article), class: "mx-2", method: "delete" do %>
+  <i class="fas fa-bookmark article-icon"></i>
+  <% end %>
+  <% else %>
+  <%= link_to bookmark_path(@article), class: "mx-2", method: "put" do %>
+  <i class="far fa-bookmark article-icon"></i>
+  <% end %>
+  <% end %>
+
+  <% if @article.liked?(current_user) %>
+  <%= link_to remove_like_path(@article), class: "mx-2", method: "delete" do %>
+  <i class="fas fa-heart article-icon"></i>
+  <% end %>
+  <% else %>
+  <%= link_to like_path(@article),  class: "mx-2", method: "put" do%>
+  <i class="far fa-heart article-icon"></i>
+  <% end %>
+  <% end %>
+
+  <% end %>
+
 </div>
 
 <%= display_show_article_links(@article) %>
