@@ -17,6 +17,8 @@
 @import "bootstrap/scss/bootstrap";
 //= require actiontext
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;600&family=PT+Serif&display=swap');
+
 
 a {
     font-size: 18px;
@@ -27,6 +29,26 @@ a {
     }
     .nav-icon {
         font-size: 25px;
+    }
+    .author-name {
+        font-size: 25px;
+    }
+}
+
+img {
+    &.profile-image {
+        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+    }
+}
+
+#single-article {
+    .title {
+        font-family: 'PT Serif', serif;
+    }
+    p {
+        font-family: 'Roboto', sans-serif;
     }
 }
 
