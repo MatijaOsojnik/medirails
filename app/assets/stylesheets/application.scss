@@ -26,12 +26,14 @@ a {
 
     &:hover {
         background-color: transparent;
+        text-decoration: none;
     }
     .nav-icon {
         font-size: 25px;
     }
     .author-name {
-        font-size: 25px;
+        font-size: 23px;
+        color: #353333;
     }
 }
 
