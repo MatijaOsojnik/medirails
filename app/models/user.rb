@@ -6,6 +6,7 @@ class User < ApplicationRecord
   :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   has_many :articles, dependent: :destroy
   has_many :bookmarks
+  has_many :likes
 
   def self.new_with_session(params, session)
   super.tap do |user|

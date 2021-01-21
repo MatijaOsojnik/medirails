@@ -5,9 +5,18 @@ a {
     &.btn-article {
         color: white !important;
     }
+
+    .article-icon {
+        font-size: 27px;
+
+        &.fa-heart {
+            color: red;
+        }
+    }
 }
+
 img {
-    &.article-image{
-        width: 50%;
+    &.article-image {
+        max-width: 100%;
     }
 }

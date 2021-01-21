@@ -73,8 +73,30 @@ class ArticlesController < ApplicationController
     redirect_to article_path(@article)
   end
 
+  def delete_bookmark
+    @article = Article.find(params[:id])
+    @article.bookmarks.where(user: current_user).destroy_all
+    redirect_to article_path(@article)
+  end
+
   def find_bookmarks
     @bookmarks = Bookmark.where(user_id: current_user.id)
+  end
+
+  def like
+    @article = Article.find(params[:id])
+    Like.create(user_id: current_user.id, article_id: @article.id)
+    redirect_to article_path(@article)
+  end
+
+  def delete_like
+    @article = Article.find(params[:id])
+    @article.likes.where(user: current_user).destroy_all
+    redirect_to article_path(@article)
+  end
+
+  def find_likes
+    @likes = Like.where(user_id: current_user.id)
   end
 
   private

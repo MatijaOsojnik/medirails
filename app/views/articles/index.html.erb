@@ -3,9 +3,11 @@
 
   <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12  my-2">
     <div class="card">
-      <strong class="p-2"> <%= article.user.name || 'Neznan avtor' %> </strong>
+      <%= link_to article_path(article.id) do %>
       <%= image_tag(article.photo, class:"card-img-top", style:"max-height: 150px;") if article.photo.attached? %>
+      <% end %> 
       <div class="card-body">
+        <strong class="p-2"> <%= article.user.name || 'Neznan avtor' %> </strong>
         <h5 class="card-title my-2"> <%= article.title %> </h5>
         <p class="card-text mb-auto"><%= article.content[20] %></p>
         <%= link_to 'Show', article, class:"btn btn-dark btn-article my-2" %>

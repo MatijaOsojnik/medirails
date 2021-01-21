@@ -1,11 +1,16 @@
 class Article < ApplicationRecord
   belongs_to :user
   has_many :bookmarks
+  has_many :likes
   has_one_attached :photo
   has_rich_text :content
 
   def bookmarked?(user)
     !!self.bookmarks.find{|bookmark| bookmark.user_id == user.id}
+  end
+
+  def liked?(user)
+    !!self.likes.find{|like| like.user_id == user.id}
   end
     # acts_as_commontable dependent: :destroy
 
