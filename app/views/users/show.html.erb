@@ -41,10 +41,11 @@
                     <%= image_tag(article.photo, class:"article-photo") if article.photo.attached? %>
                     <% end %>
         
-                    <strong class="p-2"> <%= article.user.name || 'Neznan avtor' %> </strong>
-                    <p class="mb-auto"><%= article.content[20] %></p>
-                    <%= link_to 'Show', article, class:"btn btn-dark btn-article my-2" %>
-    
+                    <p class="my-2"><%= truncate(strip_tags(article.content.to_s), length: 250) %></p>
+                    <%= link_to article_path(article.id) do %>
+                        <span class="text-dark" style="font-size: 16px;">Read more ~
+                            <%= show_read_time(article.content.to_s) %> min read</span>
+                    <% end %> 
                 </div>
                 <% end %>
             </div>

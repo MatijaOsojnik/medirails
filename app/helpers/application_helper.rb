@@ -21,5 +21,14 @@ module ApplicationHelper
     elsif (hour >= 18 and hour <= 24)
       return "Good evening"
     end
-end
+  end
+
+  def show_read_time(content)
+    result = (content.scan(/[\w-]+/).size.to_f / 256)
+    if (result < 1)
+      return 1
+    else 
+      return result.round
+    end
+  end
 end
