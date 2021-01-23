@@ -10,6 +10,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "jquery"
 //= require rails-ujs
+//= require commontator/application
 
 import {
     Application
