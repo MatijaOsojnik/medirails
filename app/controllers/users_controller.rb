@@ -3,7 +3,7 @@ class UsersController < ApplicationController
         @user = User.find_by_id(params[:id])
         @articles = Article.all.where(user: params[:id])
     end
-    def index
+    def index 
 
     end
 end

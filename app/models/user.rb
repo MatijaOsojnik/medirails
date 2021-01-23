@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :bookmarks
   has_many :likes
+  
+  acts_as_commontator
 
   def self.new_with_session(params, session)
   super.tap do |user|

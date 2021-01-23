@@ -14,8 +14,10 @@
                 </span>
             </div>
             <div class="col-3 d-flex align-items-center justify-content-end">
+                <% if current_user %>
                 <% if current_user.id == @user.id %>
                 <%= link_to "Edit profile", edit_user_registration_path, class: 'btn btn-primary mb-3 ml-2' %>
+                <% end %>
                 <% end %>
             </div>
         </div>
@@ -33,19 +35,19 @@
             </span>
             <div class="row my-3">
                 <% @articles.each do |article| %>
-        
+
                 <div class="col-12 col-xl-6 col-lg-6 my-2">
                     <%= link_to article_path(article.id) do %>
                     <small class="text-muted"><%= article.created_at.strftime('%b %d, %Y') %></small>
                     <span class="d-block mb-3 mt-1 title article-title"> <%= article.title %> </span>
                     <%= image_tag(article.photo, class:"article-photo") if article.photo.attached? %>
                     <% end %>
-        
+
                     <p class="my-2"><%= truncate(strip_tags(article.content.to_s), length: 250) %></p>
                     <%= link_to article_path(article.id) do %>
-                        <span class="text-dark" style="font-size: 16px;">Read more ~
-                            <%= show_read_time(article.content.to_s) %> min read</span>
-                    <% end %> 
+                    <span class="text-dark" style="font-size: 16px;">Read more ~
+                        <%= show_read_time(article.content.to_s) %> min read</span>
+                    <% end %>
                 </div>
                 <% end %>
             </div>

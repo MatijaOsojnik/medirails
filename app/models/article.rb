@@ -5,6 +5,8 @@ class Article < ApplicationRecord
   has_one_attached :photo
   has_rich_text :content
 
+  acts_as_commontable dependent: :destroy
+
   def bookmarked?(user)
     !!self.bookmarks.find{|bookmark| bookmark.user_id == user.id}
   end
@@ -12,7 +14,6 @@ class Article < ApplicationRecord
   def liked?(user)
     !!self.likes.find{|like| like.user_id == user.id}
   end
-    # acts_as_commontable dependent: :destroy
 
   validates :title, presence: true
   validates :content, presence: true
