@@ -1,16 +1,57 @@
-<div class="row justify-content-center" id="single-article">
-    <div class="col-12 col-xl-6 col-lg-8 ">
-        <div>
-            <h2 class="title my-2"> <%=@user.name%> </h2>
-            <div class="my-4 row justify-content-between align-items-center">
-                <div class="col-4">
+<div class="row" id="user-profile">
+    <div class="col-12">
+        <div class="row justify-content-between">
+            <div class="col-9">
+                <span class="title my-2">
                     <% if @user.icon_url%>
-                    <%= image_tag(@user.icon_url, class:"profile-image") %>
+                    <%= image_tag(@user.icon_url, class: "profile-image") %>
                     <% else %>
                     <%= image_tag('placeholder-image.jpg', class:"profile-image") %>
                     <% end %>
+                    <span class="mx-2">
+                        <%= @user.name %>
+                    </span>
+                </span>
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-end">
+                <% if current_user %>
+                <% if current_user.id == @user.id %>
+                <%= link_to "Edit profile", edit_user_registration_path, class: 'btn btn-primary mb-3 ml-2' %>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+        <div>
+            <span class="subtitle mt-4">
+                ABOUT
+            </span>
+            <span class="user-bio mt-2">
+                <%= @user.bio || "Hi! My name is #{@user.name}" %>
+            </span>
+        </div>
+        <div class="my-5">
+            <span class="title" style="font-size: 29px;">
+                My Articles
+            </span>
+            <div class="row my-3">
+                <% @articles.each do |article| %>
+
+                <div class="col-12 col-xl-6 col-lg-6 my-2">
+                    <%= link_to article_path(article.id) do %>
+                    <small class="text-muted"><%= article.created_at.strftime('%b %d, %Y') %></small>
+                    <span class="d-block mb-3 mt-1 title article-title"> <%= article.title %> </span>
+                    <%= image_tag(article.photo, class:"article-photo") if article.photo.attached? %>
+                    <% end %>
+
+                    <p class="my-2"><%= truncate(strip_tags(article.content.to_s), length: 250) %></p>
+                    <%= link_to article_path(article.id) do %>
+                    <span class="text-dark" style="font-size: 16px;">Read more ~
+                        <%= show_read_time(article.content.to_s) %> min read</span>
+                    <% end %>
                 </div>
+                <% end %>
             </div>
         </div>
     </div>
+</div>
 </div>

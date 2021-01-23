@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :articles 
-  
+
   #BOOKMARKS
   put '/article/:id/bookmark', to: 'articles#bookmark', as: 'bookmark'
   delete '/article/:id/bookmark', to: 'articles#delete_bookmark', as: 'remove_bookmark'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
   resources :users, :only => [:show]
+  
   root to: "articles#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

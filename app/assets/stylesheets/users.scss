@@ -1,3 +1,39 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$breakpoint-tablet: 768px;
+
+#user-profile {
+    span {
+        &.title {
+            font-size: 34px;
+        }
+        &.article-title {
+            color: black;
+            font-size: 23px;
+        }
+        &.subtitle {
+            font-size: 17px;
+            color: rgb(154, 154, 154);
+            display: block;
+        }
+        &.user-bio {
+            font-size: 20px;
+            display: block;
+        }
+    }
+    img {
+        &.profile-image {
+            border-radius: 50%;
+            height: 72px;
+            width: 72px;
+        }
+    }
+    @media (max-width: $breakpoint-tablet) {
+        span {
+            &.title {
+                font-size: 25px;
+            }
+        }
+    }
+}

@@ -12,12 +12,15 @@
  *
  *= require_tree .
  *= require_self
+ *= require commontator/application
  */
 
 @import "bootstrap/scss/bootstrap";
 //= require actiontext
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;600&family=PT+Serif&display=swap');
+
+$breakpoint-tablet: 768px;
 
 
 a {
@@ -28,30 +31,33 @@ a {
         background-color: transparent;
         text-decoration: none;
     }
+
     .nav-icon {
         font-size: 25px;
     }
+
     .author-name {
         font-size: 23px;
         color: #353333;
     }
 }
 
-img {
-    &.profile-image {
-        border-radius: 50%;
-        height: 32px;
-        width: 32px;
+
+.title {
+    font-family: 'PT Serif', serif;
+    &.article-title {
+        font-size: 26px;
     }
 }
 
-#single-article {
-    .title {
-        font-family: 'PT Serif', serif;
-    }
-    p {
-        font-family: 'Roboto', sans-serif;
-    }
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+}
+
+img {
+    max-width: 100%;
 }
 
 .nav-logo {
@@ -68,6 +74,7 @@ img {
         border: none !important;
     }
 }
+
 .nav-greeting {
     font-size: 26px;
     color: black;
@@ -77,6 +84,6 @@ img {
 .btn-group>.btn-group:not(:last-child)>.btn {
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
-        border-top-left-radius: 0.25rem;
-        border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
 }

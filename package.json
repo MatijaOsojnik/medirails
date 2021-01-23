@@ -11,10 +11,12 @@
     "bootstrap": "^4.5.3",
     "css-loader": "^5.0.1",
     "jquery": "^3.5.1",
+    "jquery-ujs": "^1.2.2",
     "mini-css-extract-plugin": "0.8.0",
     "popper.js": "^1.16.1",
     "postcss": "^8.2.1",
     "postcss-loader": "^4.1.0",
+    "stimulus": "^2.0.0",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0"
   },
