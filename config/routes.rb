@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :articles 
 
+  mount Commontator::Engine => '/commontator'
+
+
   #BOOKMARKS
   put '/article/:id/bookmark', to: 'articles#bookmark', as: 'bookmark'
   delete '/article/:id/bookmark', to: 'articles#delete_bookmark', as: 'remove_bookmark'
