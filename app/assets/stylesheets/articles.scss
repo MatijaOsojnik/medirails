@@ -6,29 +6,63 @@
         &.btn-article {
             color: white !important;
         }
-    
+
         .article-icon {
             font-size: 27px;
-    
+
             &.fa-heart {
                 color: red;
             }
         }
+
         .author-name {
             font-size: 20px;
-            
+
         }
     }
-    
+
     img {
         &.article-image {
             max-width: 100%;
         }
-    
+
         &.profile-image {
             border-radius: 50%;
             height: 40px;
             width: 40px;
+        }
+    }
+}
+
+#all-articles {
+    a {
+        &.btn-article {
+            color: white !important;
+        }
+
+        .article-icon {
+            font-size: 23px;
+
+            &.fa-heart {
+                color: red;
+            }
+        }
+
+        .author-name {
+            font-size: 16px;
+
+        }
+    }
+
+    img {
+        &.article-image {
+            max-width: 100%;
+        }
+
+        &.profile-image {
+            border-radius: 50%;
+            height: 32px;
+            width: 32px;
         }
     }
 }

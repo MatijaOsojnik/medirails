@@ -6,8 +6,10 @@
       <div class="my-4 row justify-content-between align-items-center">
         <div class="col-9">
           <%= link_to user_path(@article.user) do  %>
-          <% if @article.user.icon_url %>
-          <%= image_tag(@article.user.icon_url, class:"profile-image") %>
+          <% if @article.user.photo.attached? %>
+          <%= image_tag(@article.user.photo, class:"profile-image") if @article.user.photo.attached? %>
+          <% elsif @article.user.icon_url %>
+          <%= image_tag(@article.user.icon_url, class: "profile-image") %>
           <% else %>
           <%= image_tag('placeholder-image.jpg', class:"profile-image") %>
           <% end %>
@@ -19,11 +21,11 @@
           <% if current_user %>
           <% if current_user.id == @article.user.id %>
           <%= link_to  edit_article_path(@article), class: 'mb-3 ml-2' do %>
-             <i class="far fa-pen article-icon"></i>
-          <% end %> 
+          <i class="far fa-pen article-icon"></i>
+          <% end %>
           <%= link_to @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mb-3 ml-2' do %>
-            <i class="fas fa-trash-alt article-icon text-danger ml-2"></i>
-          <% end %> 
+          <i class="fas fa-trash-alt article-icon text-danger ml-2"></i>
+          <% end %>
           <% else %>
           <% if @article.bookmarked?(current_user) %>
           <%= link_to remove_bookmark_path(@article), class: "mx-2", method: "delete" do %>

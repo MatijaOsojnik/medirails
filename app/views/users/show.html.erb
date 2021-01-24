@@ -3,9 +3,11 @@
         <div class="row justify-content-between">
             <div class="col-9">
                 <span class="title my-2">
-                    <% if @user.icon_url%>
+                    <% if @user.photo.attached? %>
+                    <%= image_tag(@user.photo, class:"profile-image") if @user.photo.attached? %>
+                    <% elsif @user.icon_url %>
                     <%= image_tag(@user.icon_url, class: "profile-image") %>
-                    <% else %>
+                    <% else %> 
                     <%= image_tag('placeholder-image.jpg', class:"profile-image") %>
                     <% end %>
                     <span class="mx-2">

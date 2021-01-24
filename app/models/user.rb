@@ -8,8 +8,11 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_one_attached :photo
+
   
   acts_as_commontator
+  
+  validates :photo, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }
 
   def self.new_with_session(params, session)
   super.tap do |user|
