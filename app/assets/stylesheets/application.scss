@@ -51,6 +51,15 @@ a {
     &.article-title {
         font-size: 26px;
     }
+    &.page-title {
+        font-size: 34px;
+    }
+    &.subtitle {
+        font-size: 26px;
+        &.subsubtitle {
+            font-size: 22px;
+        }
+    }
 }
 
 p {
