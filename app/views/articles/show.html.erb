@@ -2,6 +2,7 @@
   <div class="col-12 col-xl-6 col-lg-8 ">
     <div>
       <h2 class="title my-2"> <%=@article.title%> </h2>
+
       <div class="my-4 row justify-content-between align-items-center">
         <div class="col-9">
           <%= link_to user_path(@article.user) do  %>
@@ -10,11 +11,20 @@
           <% else %>
           <%= image_tag('placeholder-image.jpg', class:"profile-image") %>
           <% end %>
-          
+
           <strong class="p-2 author-name"> <%= @article.user.name || 'Neznan avtor' %> </strong>
-          <% end %> 
+          <% end %>
         </div>
         <div class="col-3 d-flex justify-content-end align-items-center">
+          <% if current_user %>
+          <% if current_user.id == @article.user.id %>
+          <%= link_to  edit_article_path(@article), class: 'mb-3 ml-2' do %>
+             <i class="far fa-pen article-icon"></i>
+          <% end %> 
+          <%= link_to @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mb-3 ml-2' do %>
+            <i class="fas fa-trash-alt article-icon text-danger ml-2"></i>
+          <% end %> 
+          <% else %>
           <% if @article.bookmarked?(current_user) %>
           <%= link_to remove_bookmark_path(@article), class: "mx-2", method: "delete" do %>
           <i class="fas fa-bookmark article-icon"></i>
@@ -22,6 +32,8 @@
           <% else %>
           <%= link_to bookmark_path(@article), class: "mx-2", method: "put" do %>
           <i class="far fa-bookmark article-icon"></i>
+          <% end %>
+          <% end %>
           <% end %>
           <% end %>
         </div>
@@ -43,6 +55,6 @@
     <%= commontator_thread(@article) %>
     <% end %>
 
-    <%= display_show_article_links(@article) %>
+    <!-- <%= display_show_article_links(@article) %> -->
   </div>
 </div>
