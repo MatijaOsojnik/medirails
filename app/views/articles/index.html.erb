@@ -1,5 +1,9 @@
 <div class="row" id="all-articles">
+  <% if @articles.blank? %>
+    <p>No articles were found..</p>
+  <% else %> 
   <% @articles.each do |article| %>
+
 
   <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12  my-2">
     <div class="card">
@@ -30,6 +34,7 @@
     </div>
   </div>
   <% end %>
+  <% end %> 
 </div>
 
 <a href="<%= new_article_path %>" class="btn btn-article btn-primary my-2">New Article <%= fa_icon "plus" %></a>
