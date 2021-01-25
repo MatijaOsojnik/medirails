@@ -26,6 +26,9 @@ gem 'omniauth-facebook'
 
 gem "omniauth-rails_csrf_protection"
 
+gem 'rails_admin', '~> 2.0' #Admin console
+gem 'cancancan' #Authorization - Roles
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
