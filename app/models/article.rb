@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   has_one_attached :photo
   has_rich_text :content
 
-  acts_as_commontable dependent: :destroy
+  # acts_as_commontable dependent: :destroy
 
   validates :photo, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }
 

@@ -7,13 +7,13 @@ development:
   <<: *default
   database: medirails_development
   username: postgres
-  password: Matija11
+  password: <%= ENV['DB_PASSWORD'] %>
 
 test:
   <<: *default
   database: medirails_test
   username: postgres
-  password: Matija11
+  password: <%= ENV['DB_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   
-  acts_as_commontator
+  # acts_as_commontator
   
   validates :photo, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }
 
