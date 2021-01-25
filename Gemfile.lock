@@ -316,6 +316,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)
+  railties
   sass-rails (>= 6)
   selenium-webdriver
   spring
@@ -325,6 +326,7 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
+  will_paginate
 
 RUBY VERSION
    ruby 2.7.2p137
