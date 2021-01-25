@@ -7,6 +7,8 @@ class Article < ApplicationRecord
 
   acts_as_commontable dependent: :destroy
 
+  validates :photo, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }
+
   def bookmarked?(user)
     !!self.bookmarks.find{|bookmark| bookmark.user_id == user.id}
   end

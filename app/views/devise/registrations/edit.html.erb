@@ -1,49 +1,92 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<!-- <span class="title page-title mb-3 d-block">My profile</span> -->
+<div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="row">
+    <div class="col-12">
 
-    <div class="form-group mb-2">
-    <%= f.label :name %>
-    <%= f.text_field :name, class:"form-control", autocomplete:"name", autofocus: true %>
+      <div data-spy="scroll" data-target="#profilenavbar" data-offset="0" style="position: relative;">
+        <span class="title subtitle my-3 d-block" id="general">General information</span>
+
+        <!-- <span class="title subtitle subsubtitle my-3 d-block" id="namesurname">Name/Surname</span> -->
+
+        <div class="form-group mb-2">
+          <%= f.label :name %>
+          <%= f.text_field :name, class:"form-control", autocomplete:"name", autofocus: true %>
+        </div>
+
+        <div class="form-group mb-2">
+          <%= f.label :surname %>
+          <%= f.text_field :surname, class:"form-control", autocomplete:"surname" %>
+        </div>
+
+        <!-- <span class="title subtitle subsubtitle my-3 d-block" id="email">Email</span> -->
+
+        <div class="form-group mb-2">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class:"form-control", autocomplete: "email" %>
+        </div>
+
+        <!-- <span class="title subtitle subsubtitle my-3 d-block" id="email">Biography</span> -->
+
+        <div class="form-group mb-2">
+          <%= f.label :bio %><br />
+          <%= f.text_area :bio, class:"form-control", autocomplete: "bio", value: "Hi! My name is #{current_user.name}!" %>
+        </div>
+
+        <!-- <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %> -->
+
+        <!-- <span class="title subtitle subsubtitle my-3 d-block" id="logo">Logo</span> -->
+        <div class="form-group mb-2">
+          <%= f.label :photo, "Logo" %><br />
+          <%= f.file_field :photo, class:"form-control-file"%>
+        </div>
+
+        <span class="title subtitle my-3 d-block" id="security">Security</span>
+
+        <div class="form-group mb-2">
+          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, class:"form-control", autocomplete: "new-password" %>
+        </div>
+
+        <div class="form-group mb-2">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password" %>
+        </div>
+
+        <% if !current_user.provider %>
+        <div class="form-group mb-2">
+          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, class:"form-control", autocomplete: "current-password" %>
+        </div>
+        <% end %>
+
+
+        <div class="actions">
+          <%= f.submit "Update", class:"btn btn-primary" %>
+        </div>
+        <% end %>
+
+        <span class="title subtitle my-3 d-block" id="delete">Cancel account</span>
+
+        <span class="d-block my-2">
+          Not happy with your account? You can cancel it right here..
+        </span>
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger my-2" %>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="form-group mb-2">
-    <%= f.label :surname %>
-    <%= f.text_field :surname, class:"form-control", autocomplete:"surname" %>
-  </div>
 
-  <div class="form-group mb-2">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+<script>
+  $('body').scrollspy({
+    target: '#profilenavbar'
+  });
+</script>
 
-  <div class="form-group mb-2">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, class:"form-control", autocomplete: "new-password" %>
-  </div>
 
-  <div class="form-group mb-2">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "new-password" %>
-  </div>
-
-  <div class="form-group mb-2">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, class:"form-control", autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update", class:"btn btn-primary" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<!-- <%= link_to "Back", :back %> -->

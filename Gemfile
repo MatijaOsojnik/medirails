@@ -53,6 +53,8 @@ gem 'dotenv-rails'
 
 gem 'commontator' # Comments engine
 
+gem 'activestorage-validator'
+
 #Image upload
 
 group :development, :test do

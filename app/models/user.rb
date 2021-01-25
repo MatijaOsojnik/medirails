@@ -5,10 +5,14 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable,
   :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   has_many :articles, dependent: :destroy
-  has_many :bookmarks
-  has_many :likes
+  has_many :bookmarks, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_one_attached :photo
+
   
   acts_as_commontator
+  
+  validates :photo, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }
 
   def self.new_with_session(params, session)
   super.tap do |user|
@@ -29,4 +33,5 @@ def self.from_omniauth(auth)
     user.icon_url = auth.info.image
   end
 end
+
 end

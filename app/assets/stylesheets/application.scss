@@ -19,7 +19,10 @@
 //= require actiontext
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;600&family=PT+Serif&display=swap');
-
+@font-face {
+    font-family: 'IntroScript';
+    src: url('IntroScript.otf');
+}
 $breakpoint-tablet: 768px;
 
 
@@ -47,6 +50,15 @@ a {
     font-family: 'PT Serif', serif;
     &.article-title {
         font-size: 26px;
+    }
+    &.page-title {
+        font-size: 34px;
+    }
+    &.subtitle {
+        font-size: 26px;
+        &.subsubtitle {
+            font-size: 22px;
+        }
     }
 }
 
@@ -76,8 +88,11 @@ img {
 }
 
 .nav-greeting {
-    font-size: 26px;
+    font-size: 28px;
     color: black;
+    .greeting-text {
+        font-family: 'IntroScript';
+    }
 }
 
 .btn-group>.btn:not(:last-child):not(.dropdown-toggle),

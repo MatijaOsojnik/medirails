@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   delete '/article/:id/likes', to: 'articles#delete_like', as: 'remove_like'
   get '/users/likes', to: 'articles#find_likes', as: 'likes'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks' }
+  devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks', :registrations => 'users/registrations' }
   resources :users, :only => [:show]
   
   root to: "articles#index"
