@@ -51,7 +51,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'dotenv-rails'
 
-gem 'commontator' # Comments engine
+# gem 'commontator' # Comments engine
 
 gem 'activestorage-validator'
 
