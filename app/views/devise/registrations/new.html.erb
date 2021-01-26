@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<div class="row justify-content-center align-content-center">
+  <div class="col-12 col-xl-6 col-lg-8 col-md-8">
+
+    <span class="title page-title text-center d-block mb-3">Sign up</span>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,8 +35,25 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up", class:"btn btn-primary" %>
+    <%= f.submit "Sign up", class:"btn btn-primary btn-block my-3 " %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+    <hr class="divider my-5">
+
+    <div class="row">
+      <div class="col-12 col-xl-6 col-lg-6 col-md-6">
+        <%= button_to user_facebook_omniauth_authorize_path, class: "btn btn-primary btn-block", :method => :post do %>
+        <span><i class="fab fa-facebook mx-2"></i>Sign in with Facebook</span>
+        <% end %>
+      </div>
+      <div class="col-12 col-xl-6 col-lg-6 col-md-6">
+        <%= button_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-light btn-block", :method => :post do %>
+        <span><i class="fab fa-google mx-2"></i>Sign in with Google</span>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- <%= render "devise/shared/links" %> -->

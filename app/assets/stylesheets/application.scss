@@ -18,10 +18,12 @@
 //= require actiontext
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;600&family=PT+Serif&display=swap');
+
 @font-face {
     font-family: 'IntroScript';
     src: url('IntroScript.otf');
 }
+
 $breakpoint-tablet: 768px;
 
 
@@ -47,14 +49,18 @@ a {
 
 .title {
     font-family: 'PT Serif', serif;
+
     &.article-title {
         font-size: 26px;
     }
+
     &.page-title {
         font-size: 34px;
     }
+
     &.subtitle {
         font-size: 26px;
+
         &.subsubtitle {
             font-size: 22px;
         }
@@ -89,8 +95,43 @@ img {
 .nav-greeting {
     font-size: 28px;
     color: black;
+
     .greeting-text {
         font-family: 'IntroScript';
+    }
+}
+
+hr {
+    display: block;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    border-top-style: inset;
+    border-top-width: 1px;
+
+    &.divider {
+        overflow: visible;
+        padding: 0;
+        margin-bottom: 10px;
+        border: none;
+        border-top: 1px solid #e0e0e0;
+        color: #6e6d7a;
+        text-align: center;
+
+        &::after {
+            content: 'Or';
+            display: inline-block;
+            position: relative;
+            top: -12.5px;
+            font: normal 14px/14px "Haas Grot Text R Web",
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+            padding: 0 16px;
+            background: #fff;
+        }
     }
 }
 

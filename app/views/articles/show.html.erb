@@ -52,7 +52,10 @@
     <%= link_to like_path(@article),  class: "mx-2", method: "put" do%>
     <i class="far fa-heart article-icon"></i>
     <% end %>
+
+    
     <% end %>
+    <span class="title"><%= @article.likes.count %> <%= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></span>
 
     <% end %>
 
