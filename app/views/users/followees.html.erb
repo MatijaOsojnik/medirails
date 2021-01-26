@@ -1,1 +1,82 @@
-hi
+<div class="row" id="user-profile">
+    <div class="col-12">
+        <div class="row justify-content-between">
+            <div class="col-12">
+                <span class="title my-2 d-block-inline">
+                    <%= link_to user_path(@user) do  %>
+                    <% if @user.photo.attached? %>
+                    <%= image_tag(@user.photo, class:"profile-image") if @user.photo.attached? %>
+                    <% elsif @user.icon_url %>
+                    <%= image_tag(@user.icon_url, class: "profile-image") %>
+                    <% else %>
+                    <%= image_tag('placeholder-image.jpg', class:"profile-image") %>
+                    <% end %>
+                    <% end %>
+                    <%= link_to user_path(@user) do  %>
+                    <span class="mx-2 title user-profile text-dark">
+                        <%= @user.name %>
+                    </span>
+                    <% end %>
+                    <% if current_user.id != @user.id %>
+                    <% if current_user.followees.include?(@user) %>
+                    <%= link_to "Unfollow", unfollow_path, class: "btn btn-dark d-block-inline mb-2", method: "POST" %>
+                    <% else %>
+                    <%= link_to "Follow", follow_path, class: "btn btn-dark d-block-inline mb-2", method: "POST"  %>
+                    <% end%>
+                    <% end %>
+                </span>
+            </div>
+
+        </div>
+        <div>
+            <span class="my-4 d-block title article-title" style="font-size: 20px;">
+                <%= @user.followees.count %>
+                <%= link_to "Following", followee_path(@user), class:"d-block-inline mr-2", style:"color: black;" %>
+                <%= @user.followers.count %>
+                <%= link_to "Followers", follower_path(@user), class:"d-block-inline", style:"color: black;"  %>
+            </span>
+        </div>
+        <div class="my-5">
+            <span class="title my-3 d-block" style="font-size: 29px;">
+                Following
+            </span>
+            <% if @followees.empty? %>
+            <span style="font-size: 20px;">No followees were found..</span>
+            <% else %>
+
+            <% @followees.each do |followee| %>
+            <div class="col-12 my-2">
+
+                <span class="title my-2 d-block-inline">
+                    <%= link_to user_path(followee) do %>
+                    <% if followee.photo.attached? %>
+                    <%= image_tag(followee.photo, class:"profile-image follow-image") if followee.photo.attached? %>
+                    <% elsif followee.icon_url %>
+                    <%= image_tag(followee.icon_url, class: "profile-image follow-image") %>
+                    <% else %>
+                    <%= image_tag('placeholder-image.jpg', class:"profile-image follow-image") %>
+                    <% end %>
+                    <span class="mx-2 text-dark">
+                        <%= followee.name %>
+                    </span>
+                    <% end %>
+                    <% if current_user.id != followee.id %>
+                    <% if current_user.followees.include?(followee) %>
+                    <%= link_to "Unfollow", unfollow_path(followee.id), class: "btn btn-dark d-block-inline", method: "POST" %>
+                    <% else %>
+                    <%= link_to "Follow", follow_path(followee.id), class: "btn btn-dark d-block-inline", method: "POST"  %>
+                    <% end %>
+                    <% end %>
+
+                </span>
+                <span class="d-block">
+                    <%= follower.bio %>
+                </span>
+                <hr class="follow-divider">
+
+            </div>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -32,7 +32,8 @@
         </div>
         <div>
             <span class="my-4 d-block title article-title" style="font-size: 20px;">
-                <%= @user.followees.count %> <%= link_to "Following", followee_path(@user), class:"d-block-inline mr-2", style:"color: black;" %>
+                <%= @user.followees.count %>
+                <%= link_to "Following", followee_path(@user), class:"d-block-inline mr-2", style:"color: black;" %>
                 <%= @user.followers.count %>
                 <%= link_to "Followers", follower_path(@user), class:"d-block-inline", style:"color: black;"  %>
             </span>
@@ -76,5 +77,4 @@
             <% end %>
         </div>
     </div>
-</div>
 </div>

@@ -133,12 +133,27 @@ hr {
             background: #fff;
         }
     }
+
+    &.follow-divider {
+
+
+
+        overflow: visible;
+        padding: 0;
+        margin: 20px 0;
+
+        border: none;
+        border-top: 1px solid #e0e0e0;
+        color: #6e6d7a;
+        text-align: center;
+
+    }
 }
 
-.btn-group>.btn:not(:last-child):not(.dropdown-toggle),
-.btn-group>.btn-group:not(:last-child)>.btn {
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
+    .btn-group>.btn:not(:last-child):not(.dropdown-toggle),
+    .btn-group>.btn-group:not(:last-child)>.btn {
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+    }

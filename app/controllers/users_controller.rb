@@ -43,7 +43,7 @@ end
 
 def followers
   @user = User.find(params[:id])
-  @followed_users = @user.followed_users
+  @followers = @user.followers
 end
 
 def followees
