@@ -63,8 +63,7 @@
         <% end %>
 
         <h5 class="card-title mt-3 mb-2"> <%= article.title %> </h5>
-        <p class="my-2 card-text"><%= truncate(strip_tags(article.content.to_s), length: 60) %></p>
-        <%= link_to 'Show', article, class:"btn btn-dark btn-article my-2" %>
+        <p class="my-2 card-text"><%= truncate(strip_tags(article.content.to_s), length: 50) %></p>
       </div>
       <div class="card-footer">
         <small class="text-muted">Last updated <%= time_ago_in_words(article.updated_at) %> ago</small>
