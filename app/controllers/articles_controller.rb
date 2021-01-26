@@ -29,10 +29,6 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
-    if article_params["photo"]
-      @article.photo.purge
-      @article.photo.attach(article_params["photo"])
-    end
 
     respond_to do |format|
       if @article.save
@@ -50,6 +46,12 @@ class ArticlesController < ApplicationController
   def update
 
     @article.user = current_user
+
+    if article_params["photo"]
+      @article.photo.purge
+      @article.photo.attach(article_params["photo"])
+    end
+    
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
