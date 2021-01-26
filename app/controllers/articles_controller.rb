@@ -112,6 +112,6 @@ class ArticlesController < ApplicationController
     end
 
     def authorize_user!
-      redirect_back fallback_location: root_path, alert: 'Nimate dostopa do te strani.' unless current_user == @article.user
+      redirect_back fallback_location: root_path, alert: 'Nimate dostopa do te strani.' unless current_user == @article.user || current_user.admin?
     end
 end
