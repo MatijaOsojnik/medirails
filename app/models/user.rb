@@ -9,7 +9,12 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_one_attached :photo
 
-  
+    has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow'
+    has_many :followees, through: :followed_users
+    has_many :following_users, foreign_key: :followee_id, class_name: 'Follow'
+    has_many :followers, through: :following_users
+
+
   # acts_as_commontator
   
   validates :photo, presence: false, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }
@@ -33,5 +38,9 @@ def self.from_omniauth(auth)
     user.icon_url = auth.info.image
   end
 end
+
+# def following?(user)
+#   !!self.followings.find{|follow| follow.user_id == user.id}
+# end
 
 end

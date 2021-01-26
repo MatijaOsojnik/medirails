@@ -31,7 +31,11 @@
 
         <div class="form-group mb-2">
           <%= f.label :bio %><br />
+          <% if !@user.bio %>
           <%= f.text_area :bio, class:"form-control", autocomplete: "bio", value: "Hi! My name is #{current_user.name}!" %>
+          <% else %>
+          <%= f.text_area :bio, class:"form-control", autocomplete: "bio" %>
+          <% end %> 
         </div>
 
         <!-- <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

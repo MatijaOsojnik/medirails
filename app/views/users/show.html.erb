@@ -2,17 +2,24 @@
     <div class="col-12">
         <div class="row justify-content-between">
             <div class="col-9">
-                <span class="title my-2">
+                <span class="title my-2 d-block-inline">
                     <% if @user.photo.attached? %>
                     <%= image_tag(@user.photo, class:"profile-image") if @user.photo.attached? %>
                     <% elsif @user.icon_url %>
                     <%= image_tag(@user.icon_url, class: "profile-image") %>
-                    <% else %> 
+                    <% else %>
                     <%= image_tag('placeholder-image.jpg', class:"profile-image") %>
                     <% end %>
                     <span class="mx-2">
                         <%= @user.name %>
                     </span>
+                    <% if current_user.id != @user.id %>
+                    <% if current_user.followees.include?(@user) %>
+                    <%= link_to "Unfollow", unfollow_path, class: "btn btn-dark d-block-inline mb-2", method: "POST" %>
+                    <% else %>
+                    <%= link_to "Follow", follow_path, class: "btn btn-dark d-block-inline mb-2", method: "POST"  %>
+                    <% end%>
+                    <% end %>
                 </span>
             </div>
             <div class="col-3 d-flex align-items-center justify-content-end">
@@ -24,6 +31,13 @@
             </div>
         </div>
         <div>
+            <span class="my-4 d-block title article-title" style="font-size: 20px;">
+                <%= @user.followees.count %> <%= link_to "Following", followee_path(@user), class:"d-block-inline mr-2", style:"color: black;" %>
+                <%= @user.followers.count %>
+                <%= link_to "Followers", follower_path(@user), class:"d-block-inline", style:"color: black;"  %>
+            </span>
+        </div>
+        <div>
             <span class="subtitle mt-4">
                 ABOUT
             </span>
@@ -32,10 +46,16 @@
             </span>
         </div>
         <div class="my-5">
-            <span class="title" style="font-size: 29px;">
+            <span class="title my-3 d-block" style="font-size: 29px;">
                 My Articles
             </span>
+            <% if @articles.empty? %>
+            <span style="font-size: 20px;">
+                No articles were found at the moment..
+            </span>
+            <% else %>
             <div class="row my-3">
+
                 <% @articles.each do |article| %>
 
                 <div class="col-12 col-xl-6 col-lg-6 my-2">
@@ -53,6 +73,7 @@
                 </div>
                 <% end %>
             </div>
+            <% end %>
         </div>
     </div>
 </div>
