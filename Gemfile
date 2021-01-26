@@ -26,9 +26,6 @@ gem 'omniauth-facebook'
 
 gem "omniauth-rails_csrf_protection"
 
-gem 'rails_admin', '~> 2.0' #Admin console
-gem 'cancancan' #Authorization - Roles
-
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -58,7 +55,8 @@ gem 'dotenv-rails'
 
 gem 'activestorage-validator'
 
-#Image upload
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
