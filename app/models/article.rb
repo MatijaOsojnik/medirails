@@ -6,8 +6,8 @@ class Article < ApplicationRecord
   has_rich_text :content
 
   # acts_as_commontable dependent: :destroy
-
-  validates :photo, presence: false, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }
+  validates :photo, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }, :on => :create
+  validates :photo, presence: false, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }, :on => :update
 
   def bookmarked?(user)
     !!self.bookmarks.find{|bookmark| bookmark.user_id == user.id}
