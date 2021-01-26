@@ -26,6 +26,27 @@
 
 $breakpoint-tablet: 768px;
 
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.footer {
+    background-color: #f3e5f5;
+    padding: 20px;
+}
+
+
 
 a {
     font-size: 18px;
