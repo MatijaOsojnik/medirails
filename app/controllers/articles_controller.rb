@@ -29,6 +29,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+    if article_params["photo"]
+      @article.photo.purge
+      @article.photo.attach(article_params["photo"])
+    end
 
     respond_to do |format|
       if @article.save
@@ -112,6 +116,6 @@ class ArticlesController < ApplicationController
     end
 
     def authorize_user!
-      redirect_back fallback_location: root_path, alert: 'Nimate dostopa do te strani.' unless current_user == @article.user
+      redirect_back fallback_location: root_path, alert: 'Nimate dostopa do te strani.' unless current_user == @article.user || current_user.admin?
     end
 end
