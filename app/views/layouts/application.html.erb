@@ -21,19 +21,20 @@
       <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-xl-8 col-lg-8 col-4 pt-1">
           <%= link_to root_path, class: 'blog-header-logo nav-logo text-dark' do %>
-            <%= image_tag "medirails-logo.svg", :size => "150x50", :style => "display:inline-block;" %> 
+          <%= image_tag "medirails-logo.svg", :size => "150x50", :style => "display:inline-block;" %>
           <!-- <h2 class="nav-logo">Medi<span class="nav-logo-rails">rails</span> 
           </h2> -->
-            <% end %>
-            <span class="nav-greeting d-xl-inline-block d-none">
-              <span style="color:rgb(201, 201, 201)" class="px-2">|</span><span class="greeting-text" style="font-weight: bold;"><%= get_time_of_day(Time.now.hour) %></span>
-            </span>
+          <% end %>
+          <span class="nav-greeting d-xl-inline-block d-none">
+            <span style="color:rgb(201, 201, 201)" class="px-2">|</span><span class="greeting-text"
+              style="font-weight: bold;"><%= get_time_of_day(Time.now.hour) %></span>
+          </span>
         </div>
         <div class="col-8 col-xl-4 col-lg-4 d-flex justify-content-end align-items-center">
           <% if user_signed_in? %>
           <div class="btn-group">
-            <a href="<%= bookmarks_path %>"  class="my-2 btn" >
-               <i class="fal fa-bookmark mx-2 nav-icon"></i>
+            <a href="<%= bookmarks_path %>" class="my-2 btn">
+              <i class="fal fa-bookmark mx-2 nav-icon"></i>
             </a>
             <button type="button" class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-user fa-2x"></i>
@@ -52,6 +53,11 @@
               <li>
                 <%= link_to "Settings", edit_user_registration_path, class: 'dropdown-item' %>
               </li>
+              <% if current_user.admin? %>
+              <li>
+                <%= link_to "Admin panel", rails_admin.dashboard_path, class: 'dropdown-item' %>
+              </li>
+              <% end %>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -73,14 +79,14 @@
   </div>
 </body>
 
-   <footer class="footer bg-light">
-     <div class="row justify-content-center align-content-center">
-      <div class="col-12 text-center align-content-center">
-        <p style="font-size: 18px; vertical-align: middle;" class="my-4">Medirails built with <i class="fa fa-heart" style="color:red;"></i> by <a
-            href="https://github.com/MatijaOsojnik">Matija </a>
-        </p>
-      </div>
-     </div>
-   </footer>
+<footer class="footer bg-light">
+  <div class="row justify-content-center align-content-center">
+    <div class="col-12 text-center align-content-center">
+      <p style="font-size: 18px; vertical-align: middle;" class="my-4">Medirails built with <i class="fa fa-heart"
+          style="color:red;"></i> by <a href="https://github.com/MatijaOsojnik">Matija </a>
+      </p>
+    </div>
+  </div>
+</footer>
 
 </html>

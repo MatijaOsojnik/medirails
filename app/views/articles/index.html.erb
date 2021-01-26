@@ -3,18 +3,46 @@
   <span style="font-size: 20px;">No articles were found..</span>
   <% else %>
   <% @articles.each do |article| %>
-
   <% if article.ultra_featured? %>
-  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">article.title</h1>
-      <p class="lead my-3"><%= truncate(strip_tags(article.content.to_s), length: 60) %></p>
-      <p class="lead mb-0"><%= link_to "Continue reading..", article, class:"text-white font-weight-bold" %></p>
+  <div class="col-12">
+    <div class="jumbotron p-3 p-md-5 text-white rounded featured-background">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic title"><%= article.title %></h1>
+        <p class="lead my-3"><%= truncate(strip_tags(article.content.to_s), length: 60) %></p>
+        <p class="lead mb-0"><%= link_to "Continue reading..", article, class:"text-white font-weight-bold" %></p>
+      </div>
     </div>
   </div>
-  <% elsif article.featured? %>
+  <% end %>
+  <% end %>
 
-  <% else %>
+  <% @articles.each do |article| %>
+  <% if article.featured? %>
+  <div class="col-md-6">
+    <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+      <div class="card-body d-flex flex-column align-items-start">
+        <h3 class="mb-0">
+          <%= link_to article, class:"text-dark title" do %>
+          <%= article.title %>
+          <% end %>
+        </h3>
+        <div class="mb-1 text-muted"><%= article.created_at.strftime('%b %d, %Y') %> </div>
+        <p class="card-text mb-auto">
+          <%= truncate(strip_tags(article.content.to_s), length: 100) %>
+        </p>
+        <p class="lead mb-0"><%= link_to "Continue reading..", article, class:"text-dark font-weight-bold" %></p>
+      </div>
+      <%= link_to article_path(article.id) do %>
+      <%= image_tag(article.photo, class:"card-img-right flex-auto d-none d-lg-block", style:"height: 200px; width: 250px;") if article.photo.attached? %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+
+  <% @articles.each do |article| %>
+
+  <% if !article.featured && !article.ultra_featured %>
   <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12  my-2">
     <div class="card">
       <%= link_to article_path(article.id) do %>
