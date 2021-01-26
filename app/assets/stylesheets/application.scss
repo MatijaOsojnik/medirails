@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: 'IntroScript';
-    src: url('IntroScript.otf');
+    src: asset-url('IntroScript.otf');
 }
 
 $breakpoint-tablet: 768px;
