@@ -19,7 +19,7 @@
         </div>
         <div class="col-3 d-flex justify-content-end align-items-center">
           <% if current_user %>
-          <% if current_user.id == @article.user.id %>
+          <% if current_user.id == @article.user.id || current_user.admin? %>
           <%= link_to  edit_article_path(@article), class: 'mb-3 ml-2' do %>
           <i class="far fa-pen article-icon"></i>
           <% end %>
