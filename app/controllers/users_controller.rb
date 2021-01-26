@@ -16,7 +16,41 @@ class UsersController < ApplicationController
         render "edit"
       end
     end
-  
+
+    # def follow_by_article
+    #   @article = Article.find(params[:id])
+    #   Follow.create(follower_id: current_user.id, followed_id: @article.user.id)
+    #   redirect_to article_path(@article)
+    # end
+
+    # def unfollow_by_article
+    #   @article = Article.find(params[:id])
+    #   current_user.followings.find_by(followed_id: @article.user.id).destroy
+    #   redirect_to article_path(@article)
+    # end
+
+def follow
+  @user = User.find(params[:id])
+  current_user.followees << @user
+  redirect_back(fallback_location: user_path(@user))
+end
+
+def unfollow
+  @user = User.find(params[:id])
+  current_user.followed_users.find_by(followee_id: @user.id).destroy
+  redirect_back(fallback_location: user_path(@user))
+end
+
+def followers
+  @user = User.find(params[:id])
+  @followers = @user.followers
+end
+
+def followees
+  @user = User.find(params[:id])
+  @followees = @user.followees
+end
+
     private
   
     def user_params

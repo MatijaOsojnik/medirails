@@ -15,28 +15,28 @@
           <% end %>
 
           <strong class="p-2 author-name"> <%= @article.user.name || 'Neznan avtor' %> </strong>
-          <% end %>
+          <% end %> 
         </div>
         <div class="col-3 d-flex justify-content-end align-items-center">
           <% if current_user %>
-          <% if current_user.id == @article.user.id || current_user.admin? %>
-          <%= link_to  edit_article_path(@article), class: 'mb-3 ml-2' do %>
-          <i class="far fa-pen article-icon"></i>
-          <% end %>
-          <%= link_to @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mb-3 ml-2' do %>
-          <i class="fas fa-trash-alt article-icon text-danger ml-2"></i>
-          <% end %>
-          <% else %>
-          <% if @article.bookmarked?(current_user) %>
-          <%= link_to remove_bookmark_path(@article), class: "mx-2", method: "delete" do %>
-          <i class="fas fa-bookmark article-icon"></i>
-          <% end %>
-          <% else %>
-          <%= link_to bookmark_path(@article), class: "mx-2", method: "put" do %>
-          <i class="far fa-bookmark article-icon"></i>
-          <% end %>
-          <% end %>
-          <% end %>
+            <% if current_user.id == @article.user.id || current_user.admin? %>
+              <%= link_to  edit_article_path(@article), class: 'mb-3 ml-2' do %>
+                <i class="far fa-pen article-icon"></i>
+              <% end %>
+              <%= link_to @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mb-3 ml-2' do %>
+                <i class="fas fa-trash-alt article-icon text-danger ml-2"></i>
+              <% end %>
+            <% elsif current_user.id != @article.user.id %>
+              <% if @article.bookmarked?(current_user) %>
+                <%= link_to remove_bookmark_path(@article), class: "mx-2", method: "delete" do %>
+                  <i class="fas fa-bookmark article-icon"></i>
+                <% end %>
+              <% else %>
+                <%= link_to bookmark_path(@article), class: "mx-2", method: "put" do %>
+                  <i class="far fa-bookmark article-icon"></i>
+                <% end %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
