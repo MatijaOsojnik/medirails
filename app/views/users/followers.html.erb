@@ -67,10 +67,9 @@
                     <%= link_to "Follow", follow_path(follower.id), class: "btn btn-dark d-block-inline", method: "POST"  %>
                     <% end %>
                     <% end %>
-
                 </span>
                 <span class="d-block">
-                    <%= follower.bio %>
+                    <%= follower.bio || "Hi! My name is #{@user.name}!" %>
                 </span>
                 <hr class="follow-divider">
 

@@ -40,14 +40,14 @@
             <span class="title my-3 d-block" style="font-size: 29px;">
                 Following
             </span>
-            <% if @followees.empty? %>
+            <% if @followees.blank? %>
             <span style="font-size: 20px;">No followees were found..</span>
             <% else %>
 
             <% @followees.each do |followee| %>
             <div class="col-12 my-2">
 
-                <span class="title my-2 d-block-inline">
+                <span class="title my-2 d-block">
                     <%= link_to user_path(followee) do %>
                     <% if followee.photo.attached? %>
                     <%= image_tag(followee.photo, class:"profile-image follow-image") if followee.photo.attached? %>
@@ -70,7 +70,7 @@
 
                 </span>
                 <span class="d-block">
-                    <%= follower.bio %>
+                    <%= followee.bio || "Hi! My name is #{@user.name}!" %>
                 </span>
                 <hr class="follow-divider">
 

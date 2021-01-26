@@ -19,16 +19,14 @@
   <%= form.label :content %>
   <%= form.rich_text_area :content, required: true %>
 </div>
-  <% if article.photo.attached? %>
-    <h4 class="mt-4">Thumbnail:</h4>
+<% if article.photo.attached? %>
+<h4 class="mt-4">Thumbnail:</h4>
 <%= image_tag(article.photo, style:"width: 200px; height: 200px; display: block;") if article.photo.attached? %>
-
-  <% end %> 
+<% end %>
 <div class="input-group my-3">
 
   <div class="custom-file">
     <%= form.file_field :photo, class: "custom-file-input" %>
-    <%= form.hidden_field :photo_cache %>
     <label class="custom-file-label" for="image">Upload thumbnail</label>
   </div>
 </div>

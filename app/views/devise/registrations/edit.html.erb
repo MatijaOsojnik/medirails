@@ -35,7 +35,7 @@
           <%= f.text_area :bio, class:"form-control", autocomplete: "bio", value: "Hi! My name is #{current_user.name}!" %>
           <% else %>
           <%= f.text_area :bio, class:"form-control", autocomplete: "bio" %>
-          <% end %> 
+          <% end %>
         </div>
 
         <!-- <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -43,9 +43,16 @@
         <% end %> -->
 
         <!-- <span class="title subtitle subsubtitle my-3 d-block" id="logo">Logo</span> -->
-        <div class="form-group mb-2">
-          <%= f.label :photo, "Logo" %><br />
-          <%= f.file_field :photo, class:"form-control-file"%>
+        <% if @user.photo.attached? %>
+        <h4 class="mt-4">Avatar:</h4>
+        <%= image_tag(@user.photo, style:"width: 200px; height: 200px; display: block;") if @user.photo.attached? %>
+        <% end %>
+        <div class="input-group my-3">
+
+          <div class="custom-file">
+            <%= f.file_field :photo, class: "custom-file-input" %>
+            <label class="custom-file-label" for="image">Upload avatar</label>
+          </div>
         </div>
 
         <span class="title subtitle my-3 d-block" id="security">Security</span>
@@ -84,11 +91,11 @@
   </div>
 </div>
 
-
-
 <script>
-  $('body').scrollspy({
-    target: '#profilenavbar'
+  // Add the following code if you want the name of the file appear on select
+  $(".custom-file-input").on("change", function () {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
   });
 </script>
 
