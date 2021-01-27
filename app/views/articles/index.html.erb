@@ -62,7 +62,9 @@
         <strong class="p-2 author-name"> <%= article.user.name || 'Neznan avtor' %> </strong>
         <% end %>
 
-        <h5 class="card-title mt-3 mb-2"> <%= article.title %> </h5>
+        <%= link_to article_path(article.id) do %>
+        <h5 class="text-dark title mt-3 mb-2"> <%= article.title %> </h5>
+        <% end %> 
         <p class="my-2 card-text"><%= truncate(strip_tags(article.content.to_s), length: 50) %></p>
       </div>
       <div class="card-footer">
