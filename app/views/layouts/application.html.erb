@@ -73,17 +73,23 @@
         </div>
       </div>
     </header>
-    <% if notice %>
-    <div class="alert alert-success" role="alert">
-      <span><%= notice %></span>
+    <div class="my-5">
+      <div class="row justify-content-center align-content-center">
+        <div class="col-12">
+          <% if notice %>
+          <div class="alert alert-success" role="alert">
+            <span class="d-block text-center"><%= notice %></span>
+          </div>
+          <% end %>
+          <% if alert %>
+          <div class="alert alert-warning" role="alert">
+            <span class="d-block text-center"><%= alert %></span>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>
     </div>
-    <% end %>
-    <% if alert %>
-    <div class="alert alert-warning" role="alert">
-      <p><%= alert %></p>
-    </div>
-    <% end %>
-    <%= yield %>
   </div>
 </body>
 
