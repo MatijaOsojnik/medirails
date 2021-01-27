@@ -20,9 +20,11 @@
         <div class="col-3 d-flex justify-content-end align-items-center">
           <% if current_user %>
             <% if current_user.id == @article.user.id || current_user.admin? %>
+              <% if current_user.id == @article.user.id %>
               <%= link_to  edit_article_path(@article), class: 'mb-3 ml-2' do %>
                 <i class="far fa-pen article-icon"></i>
               <% end %>
+              <% end %> 
               <%= link_to @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mb-3 ml-2' do %>
                 <i class="fas fa-trash-alt article-icon text-danger ml-2"></i>
               <% end %>

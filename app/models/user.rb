@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   # acts_as_commontator
   
-  validates :photo, presence: false, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..2.megabytes }
+  validates :photo, presence: false, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 0..3.megabytes }
 
   def self.new_with_session(params, session)
   super.tap do |user|
