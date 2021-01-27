@@ -43,6 +43,8 @@ MediRails is a clone of the platform called Medium. It has the standard features
 - User View Create, Update, Delete
 ...
 
-<p align="center">
-  <img src = "https://imgur.com/3Gcp2Vi.png" width=500>
+<p style="align:center;">
+  <a href="https://medirails.herokuapp.com">
+    <img src = "https://imgur.com/3Gcp2Vi.png" width=500>
+  </a>
 </p>
