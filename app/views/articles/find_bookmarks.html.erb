@@ -1,5 +1,8 @@
 <div>
     <h1 class="title mb-4">Your Bookmarks</h1>
+    <% if @bookmarks.empty? %>
+        <span class="d-block" style="font-size: 20px;">No bookmarks were found..</span>
+    <% else %> 
     <div class="row my-2">
         <% @bookmarks.each do |bookmark| %>
         <% article = Article.find_by(id: bookmark.article_id) %>
@@ -25,4 +28,5 @@
         </div>
         <% end %>
     </div>
+    <% end %> 
 </div>
