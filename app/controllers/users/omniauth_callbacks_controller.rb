@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       Rails.logger.info(@user.errors.full_messages)
       session["devise.facebook_data"] = request.env["omniauth.auth"].except("extra")
-      redirect_to root_path, notice: "Authentication error. User with this email already exists!"
+      redirect_to root_path, alert: "Authentication error. User with this email already exists!"
     end
   end
 
@@ -20,10 +20,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       Rails.logger.info(@user.errors.full_messages)
       session["devise.google_oauth2_data"] = request.env["omniauth.auth"].except("extra")
-      redirect_to root_path, notice: "Authentication error. User with this email already exists!"
+      redirect_to root_path, alert: "Authentication error. User with this email already exists!"
     end
   end
-
 
   def failure
     redirect_to root_path
