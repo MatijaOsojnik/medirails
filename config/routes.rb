@@ -24,9 +24,17 @@ Rails.application.routes.draw do
   # delete '/articles/:id/unfollow', to: "users#unfollow_by_article", as: "unfollow_by_article"
   get '/users/following', to: 'users#following', as: 'following'
   get '/users/followers', to: 'users#followers', as: 'followers'
-
+  
+  namespace :api, defaults: { format: :json } do
+     namespace :v1 do
+       post 'authenticate', to: 'authentication#authenticate'
+       resources :articles, only: [:index]
+     end
+   end
+  
   devise_for :users, :controllers => { :omniauth_callbacks => 'users/omniauth_callbacks', :registrations => 'users/registrations' }
   resources :users, :only => [:show]
+
   
   root to: "articles#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
