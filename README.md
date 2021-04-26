@@ -22,7 +22,7 @@
 > 3. Write:  ```rake db:create```</br>
 > 4. Add .env variables for Google, Facebook Oauth </br>
 > 5. Add secret variables for AWS3 </br>
-> 6. Run: ```rails s``
+> 6. Run: ```rails s```
 
 ## Prerequisites
 
